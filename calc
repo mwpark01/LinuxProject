@@ -1,0 +1,68 @@
+#!/bin/bash
+inputs() {
+ export int1=0
+ export int2=0
+ read -p "Enter two integers: " int1 int2
+}
+
+exitPrompt(){
+ read -p "Do you wish to continue? [y]es or [n]o: " ans
+
+ if [ $ans == 'n' ]
+ then
+ echo "Exiting the script. Have a nice day!"
+ exit 0
+ 
+ elif [ $ans == 'y' ]
+ then
+ echo ""
+
+ else
+ echo "You type wrong input!!"
+ sleep 3s
+ fi
+}
+
+while (true)
+do
+ clear
+ printf "Choose from the following operations: \n"
+ printf "[a]Addition [b]Subtraction [c] Multiplication [d]Division\n"
+ read -p "### Your choice: " choice
+ case $choice in
+
+ [aA])
+ inputs
+ res=$((int1+int2))
+ ;;
+
+ [bB])
+ inputs
+ res=$((int1-int2))
+ ;;
+
+ [cC])
+ inputs
+ res=$((int1*int2))
+ ;;
+
+ [dD])
+ inputs
+ if [ ${int2} -eq 0 ]; then
+ echo "you cannot divide by zero"
+ else
+ res=$((int1/int2))
+ fi
+ ;;
+
+ *)
+ res=0
+ echo "wrong choice!"
+ esac
+ if [ ${int2} -eq 0 ]; then
+ echo ""
+ else
+ echo "The result is: " $res
+ fi
+ exitPrompt
+done
