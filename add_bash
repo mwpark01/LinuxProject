@@ -1,0 +1,11 @@
+#!/bin/bash
+declare -i sum=0
+
+for number
+do
+	# sum=$(($sum + $number))
+	# let sum=$sum+$number 
+	let "sum = $sum + $number"
+done
+
+echo ${sum}
