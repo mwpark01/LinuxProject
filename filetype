@@ -1,0 +1,31 @@
+#!/bin/sh
+if [ "$1" = "" ]; then
+	echo 인수를 입력하지 않았습니다.
+
+elif [ ! -e "$1" ]; then
+	echo $1 이 존재하지 않습니다
+
+elif [ -d "$1" ]; then
+	echo $1 은 디렉토리 입니다.
+
+elif [ -f "$1" ]; then
+	echo $1 은 보통 파일 입니다.
+
+elif [ -h "$1" ]; then
+	echo $1 은 심볼릭 링크 입니다.
+
+elif [ -b "$1" ]; then
+	echo $1 은 블록장치 입니다.
+
+elif [ -p "$1" ]; then
+	echo $1 은 파이프 입니다.
+
+elif [ -c "$1" ]; then
+	echo $1 은 문자장치 입니다.
+
+elif [ -S "$1" ]; then
+	echo $1 은 소켓 입니다.
+
+else
+	echo $1 은 그 외의 파일입니다.
+fi
