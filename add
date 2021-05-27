@@ -1,0 +1,9 @@
+#!/bin/sh
+sum=0
+
+for number
+do
+	sum=`expr $sum + $number`
+done
+
+echo $sum
