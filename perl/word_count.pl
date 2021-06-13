@@ -24,10 +24,15 @@ if($chk =~ /n/ || $chk =~ /N/){
 	foreach $key (sort keys %words){ # 입력된 키값들을 정렬한후 출력한다.
 		print "$key : $words{$key} 번\n";
 	}
-	exit;
+	last;
+}
+
+elsif ($chk =~ /y/ || $chk =~ /Y/){
+	next;
 }
 
 else{
-	next;
+	print "잘못 입력하셨습니다.\n";
+	goto A;
 }
 }
